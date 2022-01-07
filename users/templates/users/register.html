@@ -1,0 +1,19 @@
+<div class="login">
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger m-2" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <h1>Create account</h1>
+
+    <form method="post" class="was-validated">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-success m-3" type="submit" value="Submit">
+    </form>
+</div>
+<br>

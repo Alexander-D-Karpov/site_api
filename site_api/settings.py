@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # apps
     "users",
+    "blog",
     # third party
     "rest_framework",
     "debug_toolbar",

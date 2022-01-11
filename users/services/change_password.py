@@ -1,4 +1,4 @@
-from users.error import ValidatorException
+from common.error import ValidatorException
 from users.models import Person
 from users.services.validate_password import validate_password
 

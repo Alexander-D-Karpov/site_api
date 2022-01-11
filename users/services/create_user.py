@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 
-from users.error import ValidatorException
+from common.error import ValidatorException
 from users.models import Person
 from users.services.validate_password import validate_password
 

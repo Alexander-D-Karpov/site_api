@@ -1,4 +1,4 @@
-from users.error import ValidatorException
+from common.error import ValidatorException
 from users.services.validators import RegexValidator, ValidatorChain
 
 

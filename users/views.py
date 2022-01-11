@@ -1,5 +1,4 @@
 from django.contrib.auth import login, logout
-from django.contrib.auth.forms import UserChangeForm
 from django.core.exceptions import ImproperlyConfigured
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
@@ -7,9 +6,9 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 
 from users import serializers
+from users.services.change_password import change_password
 from users.services.create_user import create_user
 from users.services.get_and_authenticate_user import get_and_authenticate_user
-from users.services.change_password import change_password
 from users.services.update_user_info import update_user_info
 
 
@@ -111,5 +110,6 @@ class AuthViewSet(viewsets.GenericViewSet):
     def update_user_info(self, request):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        update_user_info(request.user, **serializer.data)
+        user = update_user_info(request.user, **serializer.data)
+        login(request, user)
         return Response(status=status.HTTP_200_OK)

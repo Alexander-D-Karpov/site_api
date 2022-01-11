@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate
 
-from users.error import ValidatorException
+from common.error import ValidatorException
 
 
 def get_and_authenticate_user(username, password):
